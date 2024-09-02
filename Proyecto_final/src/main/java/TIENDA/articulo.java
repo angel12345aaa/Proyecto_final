@@ -1,41 +1,62 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package TIENDA;
+package usuario;
 
 /**
- *
  * @author angel
  */
-class articulo {
+public class articulo {//declaracion de variables 
 
-    articulo(String nombre, int cantidad, double precioUnidad) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private String nombre;       //variable del nombre del articulo 
+
+    private int cantidad;        //cantidad de unidades del articulo 
+
+    private double precioUnidad; //precio de cada unidad 
+
+    public articulo(String nombre, int cantidad, double precioUnidad) { //constructor der la clase articulo 
+
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.precioUnidad = precioUnidad;
+
     }
 
-    String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getNombre() {
+        return nombre;
     }
 
-    boolean vendido(int numero) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    int getprecioUnidad() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int getCantidad() {
+        return cantidad;
     }
 
-    int getCantidad() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    boolean getArticulo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double getPrecioUnidad() {
+        return precioUnidad;
     }
 
-    String getPrecioUnidad() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setPrecioUnidad(double precioUnidad) {
+        this.precioUnidad = precioUnidad;
     }
-    
+
+    public boolean vendido(int numero) {//metodo para pedir al usuario que introduzca un numero 
+        if (numero <= cantidad) {
+            numero -= cantidad;
+        } else {
+            System.out.println("no hay suficientes unidades ");
+
+            return false;
+        }
+        return true;
+    }
+
+    @Override//depuracion 
+    public String toString() {
+        return "NOMBRE =" + nombre + ", CANTIDAD =" + cantidad + ", PRECIO POR UNIDAD =" + precioUnidad + 'Q';
+    }
+
 }
