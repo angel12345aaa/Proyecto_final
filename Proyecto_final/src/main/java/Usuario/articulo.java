@@ -1,9 +1,9 @@
-package usuario;
+package Usuario;
 
 /**
  * @author angel
  */
-public class articulo {//declaracion de variables 
+public class Articulo {//declaracion de variables 
 
     private String nombre;       //variable del nombre del articulo 
 
@@ -11,7 +11,7 @@ public class articulo {//declaracion de variables
 
     private double precioUnidad; //precio de cada unidad 
 
-    public articulo(String nombre, int cantidad, double precioUnidad) { //constructor der la clase articulo 
+    public Articulo(String nombre, int cantidad, double precioUnidad) { //constructor der la clase articulo 
 
         this.nombre = nombre;
         this.cantidad = cantidad;

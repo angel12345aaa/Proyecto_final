@@ -2,23 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package TIENDA;
+package tienda;
 
 /**
  *
  * @author angel
  */
-public class persona {
+public class Persona {
 
     private String nombres_completos;
     private String apellidos_completos;
     private String CUI;
     private String sexo;
 
-    public persona() {
+    public Persona() {
     }
 
-    public persona(String nombres_completos, String apellidos_completos, String CUI, String sexo) {
+    public Persona(String nombres_completos, String apellidos_completos, String CUI, String sexo) {
         this.nombres_completos = nombres_completos;
         this.apellidos_completos = apellidos_completos;
         this.CUI = CUI;
@@ -60,6 +60,14 @@ public class persona {
     @Override
     public String toString() {
         return "persona{" + "nombres_completos=" + nombres_completos + ", apellidos_completos=" + apellidos_completos + ", CUI=" + CUI + ", sexo=" + sexo + '}';
+    }
+
+    String getNombresCompletos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    String getApellidosCompletos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
