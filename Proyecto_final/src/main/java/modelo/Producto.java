@@ -15,7 +15,7 @@ public class Producto {
     
     private String descripcion;
     
-    private String caracteristica;
+    
     
 
     public String getCodigo() {
@@ -45,7 +45,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "codigo=" + codigo + "|precio=" + precio + "|descripcion=" + descripcion + "|caracteristica=" + caracteristica;
+        return "codigo= " + codigo + "|precio= " + precio + "|descripcion= " + descripcion  ;
     }
 
     

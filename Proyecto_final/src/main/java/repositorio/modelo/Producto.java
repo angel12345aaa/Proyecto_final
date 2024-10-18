@@ -7,7 +7,7 @@ package repositorio.modelo;
 public class Producto {
 
     public static Producto fromString(String linea) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
    
     private int codigo;

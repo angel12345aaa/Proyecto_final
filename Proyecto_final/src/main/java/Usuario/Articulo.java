@@ -56,7 +56,7 @@ public class Articulo {//declaracion de variables
 
     @Override//depuracion 
     public String toString() {
-        return "NOMBRE = " + nombre + ", CANTIDAD = " + cantidad + ", PRECIO POR UNIDAD = " + precioUnidad + 'Q';
+        return "NOMBRE =" + nombre + ", CANTIDAD =" + cantidad + ", PRECIO POR UNIDAD =" + precioUnidad + 'Q';
     }
 
 }

@@ -1,10 +1,10 @@
 
+import java.util.HashMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 import servicio.CategoriaServicio;
 import servicio.ProductoServicio;
-
-
 
 public class Main {
 
@@ -30,7 +30,7 @@ public class Main {
     }
 
     public static boolean login() {
-
+        System.out.println("Bienvenido al sistema de Inventario");
         System.out.print("INGRESE SU CARNET PARA ACCEDER AL SISTEMA: ");
         String carnet = scanner.nextLine().trim();
 
@@ -54,77 +54,73 @@ public class Main {
         if (esAdmin) {
             mostrarMenuAdmin();
         } else {
-            mostrarMenuCajero ();
+            mostrarMenuCajero();
         }
     }
 
-   public static void mostrarMenuCajero(){
-       CategoriaServicio categoriaServicio =new CategoriaServicio();
-       ProductoServicio produtoServicio = new ProductoServicio();
-       
-       int opcion =0;
+    public static void mostrarMenuCajero() {
+        CategoriaServicio categoriaServicio = new CategoriaServicio();
+        ProductoServicio produtoServicio = new ProductoServicio();
+
+        int opcion = 0;
         do {
             System.out.println("[1] Categorias Existentes ");
             System.out.println("[2] Productos Existentes ");
             System.out.println("[3] POS");
             System.out.println("[4] Salir del Sistema");
-            try {opcion = scanner.nextInt();
-            scanner.nextLine(); 
-            
-           switch (opcion){
-               case 1:
-                   categoriaServicio.imprimirCategorias();
-               case 2:
-                   produtoServicio.impresionProductos();
-                   default:
-                    System.out.println("Opcion no válida.");
-            }
-            }catch(InputMismatchException ex){
+            try {
+                opcion = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (opcion) {
+                    case 1:
+                        categoriaServicio.imprimirCategorias();
+                    case 2:
+                        produtoServicio.impresionProductos();
+                    case 3:
+                       // pos();
+                    default:
+                        System.out.println("Opcion no valida.");
+                }
+            } catch (InputMismatchException ex) {
                 System.out.println("Opcion ivalida solo acepta digitos");
             }
-           
-            
-        
-   }while(opcion != 0);
-     }
-    
-    
-    
-    
-    
+
+        } while (opcion != 0);
+    }
+
     public static void mostrarMenuAdmin() {
-        int opcion =0;
+        int opcion = 0;
         do {
             System.out.println("[1] Gestion de Categorias");
             System.out.println("[2] Gestion de Producto");
             System.out.println("[4] Gestion de Ventas");
             System.out.println("[0] Salir");
             System.out.print("Seleccione una opcion: ");
-            try {opcion = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            try {
+                opcion = scanner.nextInt();
+                scanner.nextLine();  // Consume newline
 
-            switch (opcion) {
-                case 1:
-                    gestionDeCategorias();
-                    break;
-                case 2:
-                    gestionDeProductos();
-                    break;
-                case 3:
-                    // mostrarProductos();
-                    break;
-                case 0:
-                    System.out.println("Saliendo del sistema...");
-                    break;
-                default:
-                    System.out.println("Opcion no válida.");
-            }
-            }catch(InputMismatchException ex){
+                switch (opcion) {
+                    case 1:
+                        gestionDeCategorias();
+                        break;
+                    case 2:
+                        gestionDeProductos();
+                        break;
+                    case 3:
+                        // mostrarProductos();
+                        break;
+                    case 0:
+                        System.out.println("Saliendo del sistema...");
+                        break;
+                    default:
+                        System.out.println("Opcion no valida.");
+                }
+            } catch (InputMismatchException ex) {
                 System.out.println("Opcion ivalida solo acepta digitos");
             }
-            
-            
-            
+
         } while (opcion != 0);
     }
 
@@ -169,13 +165,11 @@ public class Main {
             case 4:
                 servicio.eliminarProducto();
                 break;
-            case 5 :
+            case 5:
                 servicio.impresionProductos();
             default:
-                System.out.println("LA OPCIÓN NO EXISTE");
+                System.out.println("LA OPCION NO EXISTE");
         }
     }
+
 }
-
-
-

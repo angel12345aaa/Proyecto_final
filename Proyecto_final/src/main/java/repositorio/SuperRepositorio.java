@@ -19,35 +19,35 @@ import java.util.logging.Logger;
  *
  * @author angel
  */
-public class SuperRepositorio implements ISuperRepositorio {
+public class SuperRepositorio implements ISuperRepositorio {//metodos a implementar en isuper
 
-       // El nombre del archivo que se va a cargar
+       // El nombre del archivo que se va a guardar 
     private final File directorio_maestro;
 
     // Metodo constructor de clase
     @SuppressWarnings("empty-statement")
 
     public SuperRepositorio(String nombre_archivo_maestro) {;
-        // El directorio se debe de cambiar la separacion a \\ cuando es sistema windows, en linux se usa /
+        // ruta del archivp actual creandolo en repo
         this.directorio_maestro = new File(System.getProperty("user.dir") + "/repo/" + nombre_archivo_maestro + ".dbf");
     }
 
     @Override
     public int guardarLineas(List<String> listaLineas) {
         try (BufferedWriter buffer = new BufferedWriter(new FileWriter(directorio_maestro.getAbsolutePath(), true))) {
-            for (String linea : listaLineas) {
+            for (String linea : listaLineas) {//recorre linea por linea 
                 buffer.write(linea);
                 buffer.newLine();
             }
             return listaLineas.size();
-        } catch (IOException ex) {
+        } catch (IOException ex) {//depuracion de errores
             Logger.getLogger(SuperRepositorio.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
 
     @Override
-    public int guardarLinea(String linea) {
+    public int guardarLinea(String linea) {//guardar una linea en el archivo
         try (BufferedWriter buffer = new BufferedWriter(new FileWriter(directorio_maestro.getAbsolutePath(), true))) {
             buffer.write(linea);
             buffer.newLine();
@@ -59,7 +59,7 @@ public class SuperRepositorio implements ISuperRepositorio {
     }
 
     @Override
-    public int actualizarLinea(String key, String value, String nuevaLinea) {
+    public int actualizarLinea(String key, String value, String nuevaLinea) {//reemplazamientos
         List<String> lineas = obtenerTodos();
         try (BufferedWriter buffer = new BufferedWriter(new FileWriter(directorio_maestro.getAbsolutePath(), false))) {
             
@@ -106,7 +106,7 @@ public class SuperRepositorio implements ISuperRepositorio {
                         busqueda = true;
                     }
                 }
-                if (!busqueda) {
+                if (!busqueda) {//coincidencias escribe la linea 
                     buffer.write(linea);
                 }
                 buffer.newLine();
@@ -121,14 +121,14 @@ public class SuperRepositorio implements ISuperRepositorio {
 
     @Override
     public String obtenerLinea(String key, String value) {
-        try (BufferedReader br = new BufferedReader(new FileReader(directorio_maestro))) {
-            String linea = null;
+        try (BufferedReader br = new BufferedReader(new FileReader(directorio_maestro))) {//abre el archivo en moto lectura
+            String linea = null; //almacena las lineas leidas
             while ((linea = br.readLine()) != null) {
                 String[] columnas = linea.split("\\|");
                 for (String columnaRegistro : columnas) {
                     String[] valores = columnaRegistro.split("=");
                     if (key.equalsIgnoreCase(valores[0]) && value.equalsIgnoreCase(valores[1])) {
-                        return linea;
+                        return linea;//linea completa ci cponcide
                     }
                 }
             }
@@ -142,11 +142,11 @@ public class SuperRepositorio implements ISuperRepositorio {
 
     @Override
     public List<String> obtenerTodos() {
-        List<String> lineasLista = new ArrayList<>();
+        List<String> lineasLista = new ArrayList<>();//lista vacia donde iran todas las lineas 
         try (BufferedReader br = new BufferedReader(new FileReader(directorio_maestro))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                lineasLista.add(linea);
+                lineasLista.add(linea);//linea leida al archivo
             }
         } catch (IOException e) {
             e.printStackTrace();

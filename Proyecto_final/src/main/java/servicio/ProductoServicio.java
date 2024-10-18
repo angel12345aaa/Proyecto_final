@@ -4,7 +4,6 @@
  */
 package servicio;
 
-
 import java.util.Scanner;
 import modelo.Producto;
 import repositorio.ProductoRepositorio;
@@ -14,7 +13,8 @@ import repositorio.ProductoRepositorio;
  * @author angel
  */
 public class ProductoServicio {
-     private final ProductoRepositorio repo = new ProductoRepositorio();
+
+    private final ProductoRepositorio repo = new ProductoRepositorio();
 
     private final Scanner scanner;
 
@@ -33,13 +33,13 @@ public class ProductoServicio {
             System.out.println("[ALERTA] EL CODIGO DE PRODUCTO NO PUEDE ESTAR VACIO");
             return;
         }
-        
+
         String linea = repo.obtenerLinea("codigo", codigo);
-        
+
         if (linea == null) {
             producto.setCodigo(codigo);
 
-            System.out.println("[ENTRADA] INGRESE UNA DESCRIPCIÓN DEL PRODUCTO:");
+            System.out.println("[ENTRADA] INGRESE UNA DESCRIPCION DEL PRODUCTO:");
             producto.setDescripcion(scanner.nextLine().toUpperCase().trim());
 
             System.out.println("[ENTRADA] INGRESE PRECIO DE PRODUCTO:");
@@ -53,7 +53,7 @@ public class ProductoServicio {
             } else {
                 System.out.println("[ERROR] NO SE PUDO GUARDAR EL PRODUCTO");
             }
-        }else{
+        } else {
             System.out.println("[ALERTA] EL CODIGO INGRESADO YA PERTENECE AL PRODUCTO [" + linea + "]");
         }
 
@@ -75,6 +75,7 @@ public class ProductoServicio {
         String codigo = scanner.nextLine().toUpperCase().trim();
         String linea = repo.obtenerLinea("codigo", codigo);
         if (linea == null) {
+
             System.out.println("[ALERTA] NINGUN PRODUCTO PERTENECE AL CODIGO" + codigo);
         } else {
             System.out.println("[INFO] PRODUCTO A ACTUALIZAR: [" + linea + "]");
@@ -100,8 +101,8 @@ public class ProductoServicio {
     public void impresionProductos() {
         repo.obtenerTodos().forEach(producto -> System.out.println(producto));
     }
-    
-    public void eliminarProducto(){
+
+    public void eliminarProducto() {
         System.out.println("[ENTRADA] INGRESE EL CODIGO DE PRODUCTO A ELIMINAR");
         String codigo = scanner.next();
         String linea = repo.obtenerLinea("codigo", codigo);
@@ -110,9 +111,13 @@ public class ProductoServicio {
         String respuesta = scanner.next().trim();
         if ("S".equalsIgnoreCase(respuesta)) {
             repo.eliminarLinea("codigo", codigo);
-        }else{
+        } else {
             System.out.println("[INFO] PROCESO DE ELIMINACION CANCELADO");
         }
+    }
+
+    public double obtenerPrecioProductoPorCodigo(String codigoProducto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

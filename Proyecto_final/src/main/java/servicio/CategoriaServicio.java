@@ -20,7 +20,7 @@ public class CategoriaServicio {
     public void guardarCategoria() {
         try {
             Categoria categoria = new Categoria();
-            System.out.println("INGRESA UN CODIGO NUMERICO PARA LA CATEGORIA");
+            System.out.println("INGRESA UN CODIGO PARA LA CATEGORIA");
             final int codigo = scanner.nextInt();
             categoria.setCodigo(codigo);
             System.out.println("INGRESE LA DESCRIPCION DE LA CATEGORIA");
@@ -34,7 +34,7 @@ public class CategoriaServicio {
                 System.out.println("ERROR AL GUARDAR LA CATEGORIA");
             }
         } catch (InputMismatchException ex) {
-            System.out.println("INCONSISTENCIA AL INGRESAR INFORMACION POR CONSOLA, VERIFICA LO REQUERIDO");
+            System.out.println("Error ingrese un dato adecuado");
         }
 
     }
